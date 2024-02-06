@@ -10,7 +10,7 @@ app.get('/hello', () => {
     return 'Oi NLW'
 })
 
-app.post('/poll', async (request) => {
+app.post('/poll', async (request, reply) => {
 
     const createPollBody = z.object({
         title: z.string()
@@ -24,7 +24,7 @@ app.post('/poll', async (request) => {
         }
     })
 
-    return { pollId : poll.id }
+    return reply.status(201).send({ pollId : poll.id })
 })
 
 app.listen({ port: 3333 }).then(() => {
