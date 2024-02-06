@@ -2,7 +2,7 @@ import { z } from "zod"
 import { prisma } from "../../lib/prisma"
 import { FastifyInstance } from "fastify"
 
-export async function createPoll(app: FastifyInstance) {
+export async function voteOnPoll(app: FastifyInstance) {
 
     app.post('/poll/:pollId/vote', async (request, reply) => {
 
